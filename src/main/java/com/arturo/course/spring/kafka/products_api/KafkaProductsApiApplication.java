@@ -1,4 +1,4 @@
-package com.arturo.course.spring.kafka.kafka_products_api;
+package com.arturo.course.spring.kafka.products_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

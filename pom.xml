@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.arturo.course.spring.kafka</groupId>
-	<artifactId>kafka-products-api</artifactId>
+	<artifactId>products-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
