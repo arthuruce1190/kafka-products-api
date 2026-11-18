@@ -23,7 +23,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody ProductDto product) {
         Reply<?> reply = productCommandService.sendCreateAsyncAwait(product, Duration.ofSeconds(5));
-        if ("SUCCESS".equalsIgnoreCase(reply.statusMessage())) {
+        if ("OK".equalsIgnoreCase(reply.statusMessage())) {
             return ResponseEntity.ok(reply.body());
         }
         return ResponseEntity.badRequest().body(Map.of("error", reply.message()));
