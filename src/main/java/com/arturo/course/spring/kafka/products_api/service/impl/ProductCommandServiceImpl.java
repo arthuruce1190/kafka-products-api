@@ -7,6 +7,7 @@ import com.arturo.course.spring.kafka.products_api.models.Reply;
 import com.arturo.course.spring.kafka.products_api.models.dto.ProductDto;
 import com.arturo.course.spring.kafka.products_api.service.ProductCommandService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ProductCommandServiceImpl implements ProductCommandService {
 
@@ -31,6 +33,7 @@ public class ProductCommandServiceImpl implements ProductCommandService {
 
         Command<ProductDto> cmd = new Command<>("CREATE", null, productDto);
         String correlationId = UUID.randomUUID().toString();
+        log.info("Api Products Client Creating product with correlationId: {}", correlationId);
         CompletableFuture<Reply<?>> future = replyInbox.register(correlationId);
         Message<Command<ProductDto>> msg = MessageBuilder
             .withPayload(cmd)
