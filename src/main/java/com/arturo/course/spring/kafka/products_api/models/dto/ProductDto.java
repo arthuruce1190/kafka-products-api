@@ -4,5 +4,6 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record ProductDto(@NotBlank String name, @NotNull @DecimalMin(value = "0.1") Double price) {
+public record ProductDto(String id, @NotBlank String name, @NotNull @DecimalMin(value = "0.1") Double price,
+                         Boolean isActive) {
 }
