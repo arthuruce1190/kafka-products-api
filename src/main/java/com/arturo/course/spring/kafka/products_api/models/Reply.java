@@ -1,4 +1,6 @@
 package com.arturo.course.spring.kafka.products_api.models;
 
-public record Reply<T>(Integer status, String statusMessage, String message, T body) {
+import org.springframework.http.HttpStatus;
+
+public record Reply<T>(HttpStatus status, String statusMessage, String message, T body) {
 }
